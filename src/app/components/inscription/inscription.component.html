@@ -1,0 +1,48 @@
+<!-- Form Layout -->
+<div class="card">
+  <div class="card-body">
+    <h4 class="mb-32">Inscription</h4>
+    <form>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Nom</mat-label>
+        <input matInput type="text" placeholder="Entrez le nom">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Prenom</mat-label>
+        <input matInput type="text"  placeholder="Entrez le prenom">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Entrez l'email">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Login</mat-label>
+        <input matInput type="email" placeholder="Entrez le login">
+      </mat-form-field>
+
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Entrez le mot de passe">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Télephone</mat-label>
+        <input matInput type="text" placeholder="Entrez le téléphone">
+      </mat-form-field>
+      <mat-form-field class="w-100 fs-16" appearance="outline">
+        <mat-label>Date de naissance</mat-label>
+        <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+      </mat-form-field>
+      <mat-datepicker #picker></mat-datepicker>
+
+      
+      <mat-radio-group color="primary" class="fs-16" aria-label="Select an option">
+        <mat-label class="text-secondary">Profil</mat-label>
+        <mat-radio-button value="2" class="d-block mb-16" [checked]="checked">Collaborateur</mat-radio-button>
+        <mat-radio-button value="3" class="d-block mb-36">Manager</mat-radio-button>
+      </mat-radio-group>
+
+      <button mat-button class="btn btn-info fw-normal" (click)="onBack()" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
