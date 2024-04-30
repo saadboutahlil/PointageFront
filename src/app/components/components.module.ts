@@ -20,6 +20,7 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component'
 import { InscriptionComponent } from './inscription/inscription.component';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { InscriptionComponent } from './inscription/inscription.component';
     SlideToggleComponent,
     ButtonsComponent,
     TooltipsComponent,
-    InscriptionComponent
+    InscriptionComponent,
+    ConnexionComponent
   ],
   imports: [
     CommonModule,
