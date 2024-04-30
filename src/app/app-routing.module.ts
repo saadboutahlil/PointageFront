@@ -19,13 +19,14 @@ import { ProductComponent } from './dashboard/dashboard-components/product/produ
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layouts/full/full.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
 
 const routes: Routes = [
+  {path:"", component:ConnexionComponent},
   {
     path:"",
     component:FullComponent,
     children: [
-      {path:"", redirectTo:"/home", pathMatch:"full"},
       {path:"home", component:DashboardComponent},
       {path:"alerts", component:AlertsComponent},
       {path:"forms", component:FormsComponent},
@@ -43,12 +44,12 @@ const routes: Routes = [
       {path:"slide-toggle", component:SlideToggleComponent},
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
-      {path:"inscription", component:InscriptionComponent},
+      {path:"inscription", component:InscriptionComponent}
     ]
   },
 
-  {path:"", redirectTo:"/home", pathMatch:"full"},
-  {path:"**", redirectTo:"/home", pathMatch:"full"},
+  {path:"", redirectTo:"/connexion", pathMatch:"full"},
+  {path:"**", redirectTo:"/connexion", pathMatch:"full"},
 ];
 
 @NgModule({
