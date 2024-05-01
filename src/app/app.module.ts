@@ -13,6 +13,9 @@ import { DemoFlexyModule } from './demo-flexy-module'
 // Modules
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ComponentsModule } from './components/components.module';
+import { connexionserviceService } from './components/connexion/services/connexion.service';
+import { HttpClientModule } from '@angular/common/http';
+import { InscriptionService } from './components/inscription/services/InscriptionService';
 
 @NgModule({
   declarations: [
@@ -27,9 +30,13 @@ import { ComponentsModule } from './components/components.module';
     DemoFlexyModule,
     DashboardModule,
     ComponentsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    connexionserviceService,
+    InscriptionService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

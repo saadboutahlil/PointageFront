@@ -1,22 +1,25 @@
+<form [formGroup]='userForm' (ngSubmit)='navigateToConnexion()'>
 <div style="padding-left: 500px;
 padding-top: 130px;
 position: relative;
 ">
+
 <div class="card" style="width:500px">
   <div class="card-body">
     <h4 class="mb-32">Connexion</h4>
     <mat-form-field class="w-100 fs-16" appearance="outline">
       <mat-label>Login</mat-label>
-      <input matInput type="email" placeholder="Entrez le login">
+      <input matInput type="email" formControlName="login" placeholder="Entrez le login">
     </mat-form-field>
     <br>
     <mat-form-field class="w-100 fs-16" appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput type="password" placeholder="Entrez le mot de passe">
+      <input matInput type="password"   formControlName="password" placeholder="Entrez le mot de passe">
     </mat-form-field>
     <br>
-    <button mat-button class="btn btn-info fw-normal" type="submit" (click)="navigateToConnexion()">Se
+    <button mat-button class="btn btn-info fw-normal" type="submit">Se
       connecter</button>
   </div>
 </div>
 </div>
+</form>

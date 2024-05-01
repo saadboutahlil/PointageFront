@@ -1,0 +1,44 @@
+<!-- Form Layout -->
+<form [formGroup]='planningForm' (ngSubmit)='planning()'>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="mb-32">Planning</h4>
+    
+          <br>
+          <mat-form-field>
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker" >
+              <input matStartDate placeholder="Start date" formControlName="from">
+              <input matEndDate placeholder="End date" formControlName="to">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+          <br>
+
+          <mat-form-field>
+            <mat-label>Type de planning</mat-label>
+            <mat-select  formControlName="typePlanning" required>
+                <mat-option *ngFor="let animal of types" [value]="animal">
+                    {{animal.type}}
+                  </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+
+          
+          <mat-form-field>
+            <mat-label>Liste des collaborateurs</mat-label>
+            <mat-select  formControlName="collaborateur" required>
+                <mat-option *ngFor="let animal of collaborateurs" [value]="animal">
+                    {{animal.nom}}  {{animal.prenom}}
+                  </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br>
+          <button mat-button class="btn btn-info fw-normal" type="submit">Submit</button>
+      </div>
+    </div>
+    
+    </form>

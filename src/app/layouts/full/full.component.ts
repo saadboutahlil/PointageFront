@@ -119,6 +119,12 @@ export class FullComponent {
       icon: "users",
       menu: "Inscription",
     }
+    ,
+    {
+      link: "/planning",
+      icon: "list",
+      menu: "Planning",
+    }
   ]
 
 }

@@ -20,6 +20,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FullComponent } from './layouts/full/full.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
+import { PlanningComponent } from './components/planning/planning.component';
 
 const routes: Routes = [
   {path:"", component:ConnexionComponent},
@@ -44,7 +45,8 @@ const routes: Routes = [
       {path:"slide-toggle", component:SlideToggleComponent},
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
-      {path:"inscription", component:InscriptionComponent}
+      {path:"inscription", component:InscriptionComponent},
+      {path:"planning", component:PlanningComponent}
     ]
   },
 

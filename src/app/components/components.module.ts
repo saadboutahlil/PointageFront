@@ -11,7 +11,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { ExpansionComponent } from './expansion/expansion.component';
 import { ChipsComponent } from './chips/chips.component';
 import { ProgressComponent } from './progress/progress.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
@@ -21,6 +21,8 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component'
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
+import { connexionserviceService } from './connexion/services/connexion.service';
+import { PlanningComponent } from './planning/planning.component';
 
 
 @NgModule({
@@ -41,13 +43,15 @@ import { ConnexionComponent } from './connexion/connexion.component';
     ButtonsComponent,
     TooltipsComponent,
     InscriptionComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    PlanningComponent
   ],
   imports: [
     CommonModule,
     FeatherModule.pick(allIcons),
     DemoFlexyModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     AlertsComponent,
@@ -64,7 +68,11 @@ import { ConnexionComponent } from './connexion/connexion.component';
     SliderComponent,
     SlideToggleComponent,
     ButtonsComponent,
-    InscriptionComponent
-  ]
+    InscriptionComponent,
+    PlanningComponent
+  ],
+  providers: [
+    connexionserviceService
+  ],
 })
 export class ComponentsModule { }
