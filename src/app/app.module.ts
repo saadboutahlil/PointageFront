@@ -16,6 +16,10 @@ import { ComponentsModule } from './components/components.module';
 import { connexionserviceService } from './components/connexion/services/connexion.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InscriptionService } from './components/inscription/services/InscriptionService';
+import { PlanningService } from './components/planning/services/PlanningService';
+import { DatePipe } from '@angular/common';
+
+
 
 @NgModule({
   declarations: [
@@ -31,11 +35,14 @@ import { InscriptionService } from './components/inscription/services/Inscriptio
     DashboardModule,
     ComponentsModule,
     FormsModule,
-    HttpClientModule,
+    HttpClientModule
+
   ],
   providers: [
     connexionserviceService,
-    InscriptionService
+    InscriptionService,
+    PlanningService,
+    DatePipe 
   ],
   bootstrap: [AppComponent]
 })

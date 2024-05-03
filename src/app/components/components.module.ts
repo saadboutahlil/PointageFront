@@ -21,7 +21,6 @@ import { ButtonsComponent } from './buttons/buttons.component';
 import { TooltipsComponent } from './tooltips/tooltips.component'
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { connexionserviceService } from './connexion/services/connexion.service';
 import { PlanningComponent } from './planning/planning.component';
 
 
@@ -70,9 +69,6 @@ import { PlanningComponent } from './planning/planning.component';
     ButtonsComponent,
     InscriptionComponent,
     PlanningComponent
-  ],
-  providers: [
-    connexionserviceService
-  ],
+  ]
 })
 export class ComponentsModule { }

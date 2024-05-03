@@ -1,4 +1,6 @@
 <!-- Form Layout -->
+<div class="container">
+</div>
 <form [formGroup]='planningForm' (ngSubmit)='planning()'>
     <div class="card">
       <div class="card-body">
@@ -19,9 +21,9 @@
 
           <mat-form-field>
             <mat-label>Type de planning</mat-label>
-            <mat-select  formControlName="typePlanning" required>
-                <mat-option *ngFor="let animal of types" [value]="animal">
-                    {{animal.type}}
+            <mat-select  formControlName="typePlanningId" required>
+                <mat-option *ngFor="let typePlanning of dataresult.listTypePlannification" [value]="typePlanning.typePlannificationId">
+                    {{typePlanning.type}}
                   </mat-option>
             </mat-select>
           </mat-form-field>
@@ -30,9 +32,9 @@
           
           <mat-form-field>
             <mat-label>Liste des collaborateurs</mat-label>
-            <mat-select  formControlName="collaborateur" required>
-                <mat-option *ngFor="let animal of collaborateurs" [value]="animal">
-                    {{animal.nom}}  {{animal.prenom}}
+            <mat-select  formControlName="collaborateurId" required>
+                <mat-option *ngFor="let collaborateur of dataresult.listCollaborateur" [value]="collaborateur.id">
+                    {{collaborateur.nom}}  {{collaborateur.prenom}}
                   </mat-option>
             </mat-select>
           </mat-form-field>
