@@ -22,7 +22,8 @@ import { TooltipsComponent } from './tooltips/tooltips.component'
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { PlanningComponent } from './planning/planning.component';
-
+import { CalendarCollaborateurComponent } from './calendar-collaborateur/calendar-collaborateur.component';
+import { ChunkPipe } from './calendar-collaborateur/models/ChunkPipe';
 
 @NgModule({
   declarations: [
@@ -43,14 +44,16 @@ import { PlanningComponent } from './planning/planning.component';
     TooltipsComponent,
     InscriptionComponent,
     ConnexionComponent,
-    PlanningComponent
+    PlanningComponent,
+    CalendarCollaborateurComponent,
+    ChunkPipe
   ],
   imports: [
     CommonModule,
     FeatherModule.pick(allIcons),
     DemoFlexyModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     AlertsComponent,

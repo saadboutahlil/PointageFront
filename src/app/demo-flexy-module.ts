@@ -51,7 +51,6 @@
  import { PortalModule } from '@angular/cdk/portal';
  import { FlexLayoutModule } from '@angular/flex-layout';
 
-
  /**
   * NgModule that includes all Material modules that are required to serve the demo-app.
   */

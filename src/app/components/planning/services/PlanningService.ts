@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ListReferentielDto } from '../models/ListReferentielDto';
 import { Observable } from 'rxjs';
 import { PlanningDto } from '../models/PlanningDto';
+import { Planning } from '../../calendar-collaborateur/models/Planning';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,5 +22,8 @@ savePlanning(planning:PlanningDto){
     };
     debugger;
     return this.http.post<PlanningDto>(this.url+'/savePlanning',planning,options);
+}
+getPlanningsByCollaborateurId(collaborateurId: number): Observable<Planning[]> {
+  return this.http.get<Planning[]>(`${this.url}/plannings/${collaborateurId}`);
 }
 }

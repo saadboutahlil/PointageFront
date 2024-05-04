@@ -21,6 +21,7 @@ import { FullComponent } from './layouts/full/full.component';
 import { InscriptionComponent } from './components/inscription/inscription.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { PlanningComponent } from './components/planning/planning.component';
+import { CalendarCollaborateurComponent } from './components/calendar-collaborateur/calendar-collaborateur.component';
 
 const routes: Routes = [
   {path:"", component:ConnexionComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [
       {path:"tooltip", component:TooltipsComponent},
       {path:"button", component:ButtonsComponent},
       {path:"inscription", component:InscriptionComponent},
-      {path:"planning", component:PlanningComponent}
+      {path:"planning", component:PlanningComponent},
+      {path:"calendrierCollaborateur", component:CalendarCollaborateurComponent},
     ]
   },
 

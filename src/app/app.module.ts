@@ -42,7 +42,7 @@ import { DatePipe } from '@angular/common';
     connexionserviceService,
     InscriptionService,
     PlanningService,
-    DatePipe 
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

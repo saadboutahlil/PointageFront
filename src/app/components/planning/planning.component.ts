@@ -4,6 +4,7 @@ import { PlanningService } from './services/PlanningService';
 import { ListReferentielDto } from './models/ListReferentielDto';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { DayPilot } from '@daypilot/daypilot-lite-angular';
 
 @Component({
   selector: 'app-planning',
@@ -24,6 +25,7 @@ export class PlanningComponent implements OnInit {
 
    }
    public  afficherlist(){
+    debugger;
     this.plaservice.getListReferentiel().subscribe({
       next: (data:ListReferentielDto) => {
         debugger;
