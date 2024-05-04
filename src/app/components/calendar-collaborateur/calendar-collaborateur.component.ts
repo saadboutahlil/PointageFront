@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CalendarDay } from './models/CalendarDay';
 import { PlanningService } from '../planning/services/PlanningService';
 import { Planning } from './models/Planning';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-calendar-collaborateur',
@@ -11,15 +12,24 @@ import { Planning } from './models/Planning';
 export class CalendarCollaborateurComponent implements OnInit {
   typePlannifications!:Array<Planning>;
   public calendar: CalendarDay[] = [];
-  public monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+  public monthNames = ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin",
+    "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"
   ];
   public displayMonth!: string;
   private monthIndex: number = 0;
-  constructor(private pla:PlanningService){} 
+  constructor(private pla:PlanningService,private route: ActivatedRoute, private router: Router){} 
   ngOnInit(): void {
 // exemple du collaborateur 2 avant de mettre la connexion
-    this.pla.getPlanningsByCollaborateurId(3).subscribe({
+
+this.route.queryParams.subscribe(params => {
+  // Lire les paramètres de l'URL
+  const param1 = params['utilisateurId'];
+  const param2 = params['typeProfil'];
+
+  console.log('Paramètre 1:', param1);
+  console.log('Paramètre 2:', param2);
+
+    this.pla.getPlanningsByCollaborateurId(param1).subscribe({
       next: (data:Array<Planning>) => {
         debugger;
         console.log(data);
@@ -33,7 +43,7 @@ export class CalendarCollaborateurComponent implements OnInit {
           console.log('complete')
       }
     }) 
-  
+  });
   }
 
   private generateCalendarDays(monthIndex: number): void {
