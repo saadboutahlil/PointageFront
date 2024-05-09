@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class connexionserviceService {
-url: string ="http://localhost:9090";
+url: string ="http://localhost:9090/api";
   constructor(private http: HttpClient) { }
 login(credentials: any): Observable<UtilisateurInfoDto> {
   return this.http.post<UtilisateurInfoDto>(`${this.url}/connexion`, credentials)

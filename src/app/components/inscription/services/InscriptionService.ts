@@ -5,7 +5,7 @@ import { UtilisateurDto } from '../models/UtilisateurDto';
   providedIn: 'root'
 })
 export class InscriptionService {
-url: string ="http://localhost:9090";
+url: string ="http://localhost:9090/api";
   constructor(private http: HttpClient) { }
 create(user:UtilisateurDto){
   let httpheaders=new HttpHeaders()

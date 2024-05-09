@@ -39,6 +39,11 @@ export class FullComponent {
       link: "/planning",
       icon: "list",
       menu: "Planning",
+    },
+    {
+      link: "/informationCollaborateur",
+      icon: "list",
+      menu: "Informations Collaborateur",
     }
   ]
 

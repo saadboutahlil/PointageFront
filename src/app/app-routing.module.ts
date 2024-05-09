@@ -22,6 +22,7 @@ import { InscriptionComponent } from './components/inscription/inscription.compo
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { PlanningComponent } from './components/planning/planning.component';
 import { CalendarCollaborateurComponent } from './components/calendar-collaborateur/calendar-collaborateur.component';
+import { InfoCollaborateurComponent } from './components/info-collaborateur/info-collaborateur.component';
 
 const routes: Routes = [
   {path:"", component:ConnexionComponent},
@@ -49,6 +50,7 @@ const routes: Routes = [
       {path:"inscription", component:InscriptionComponent},
       {path:"planning", component:PlanningComponent},
       {path:"calendrierCollaborateur", component:CalendarCollaborateurComponent},
+      {path:"informationCollaborateur", component:InfoCollaborateurComponent},
     ]
   },
 
