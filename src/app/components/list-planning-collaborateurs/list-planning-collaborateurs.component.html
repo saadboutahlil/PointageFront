@@ -1,0 +1,25 @@
+<div>
+    <div align="center">
+      <button mat-fab class="mb-8 me-8"  (click)="decreaseMonth()" ><<</button>
+      <button mat-raised-button class="me-8 mb-8" (click)="setCurrentMonth()">Aujourd'hui</button>
+      <button mat-fab class="mb-8 me-8"  (click)="increaseMonth()" >>></button>
+    </div>
+  </div>
+
+  <table class='calendar-table' *ngIf="calendarGeneral">
+    <tr *ngFor="let aa of calendarGeneral; let x = index">
+      <ng-container *ngIf="x === 0">
+        <td style="width: 200px;"></td>
+        <td  style="width: 150px;background-color: #fb9678;" class="calendar-day" [ngClass]="{'past-date': c.isPastDate, 'today': c.isToday}" *ngFor="let c of aa.calendar; let j = index">
+          <div class="calendar-day-header" [ngClass]="{'blue-date': c.isToday}"><strong>{{c.date.getDate()}}</strong> <strong *ngIf="c.isToday || (j == 0) || (c.date.getDate() == 1)"><br> {{monthNames[c.date.getMonth()]}} </strong><br></div>
+        </td>
+      </ng-container>
+      <ng-container *ngIf="x > 0">
+        <td style="width: 200px;">{{aa.nomComplet}}</td>
+        <td   style="width: 150px; background-color: #fb96;" class="calendar-day" [ngClass]="{'past-date': c.isPastDate, 'today': c.isToday}" *ngFor="let c of aa.calendar; let j = index">
+          <div class="calendar-day-header">  {{c.title}}</div>
+        </td>
+      </ng-container>
+    </tr>
+  </table>
+  
