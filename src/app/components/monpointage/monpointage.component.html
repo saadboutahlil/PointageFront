@@ -1,0 +1,13 @@
+<div fxLayout="row">
+    <div fxFlex="100%">
+      <mat-card>
+        <mat-card-content>
+          <h4 class="mb-32">Se connecter/deconnecter</h4>
+          <mat-slide-toggle
+          [(ngModel)]="toggleChecked"
+          (change)="onToggleChange($event)"
+          >Slide me!</mat-slide-toggle>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

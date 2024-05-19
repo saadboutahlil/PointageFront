@@ -4,7 +4,6 @@ import { PlanningService } from './services/PlanningService';
 import { ListReferentielDto } from './models/ListReferentielDto';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
-import { DayPilot } from '@daypilot/daypilot-lite-angular';
 
 @Component({
   selector: 'app-planning',

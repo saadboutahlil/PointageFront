@@ -24,7 +24,7 @@ savePlanning(planning:PlanningDto){
     debugger;
     return this.http.post<PlanningDto>(this.url+'/savePlanning',planning,options);
 }
-getPlanningsByCollaborateurId(collaborateurId: number): Observable<Planning[]> {
+getPlanningsByCollaborateurId(collaborateurId: number|null): Observable<Planning[]> {
   return this.http.get<Planning[]>(`${this.url}/plannings/${collaborateurId}`);
 }
 saveInformations(information:InformationCollaborateurDto){

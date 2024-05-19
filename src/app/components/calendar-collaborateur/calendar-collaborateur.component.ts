@@ -3,6 +3,7 @@ import { CalendarDay } from './models/CalendarDay';
 import { PlanningService } from '../planning/services/PlanningService';
 import { Planning } from './models/Planning';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/local-storage.service';
 
 @Component({
   selector: 'app-calendar-collaborateur',
@@ -17,19 +18,13 @@ export class CalendarCollaborateurComponent implements OnInit {
   ];
   public displayMonth!: string;
   private monthIndex: number = 0;
-  constructor(private pla:PlanningService,private route: ActivatedRoute, private router: Router){} 
+  constructor(private pla:PlanningService,private route: ActivatedRoute, private router: Router,
+    private localservice :LocalStorageService 
+  ){} 
   ngOnInit(): void {
 // exemple du collaborateur 2 avant de mettre la connexion
 
-this.route.queryParams.subscribe(params => {
-  // Lire les paramètres de l'URL
-  const param1 = params['utilisateurId'];
-  const param2 = params['typeProfil'];
-
-  console.log('Paramètre 1:', param1);
-  console.log('Paramètre 2:', param2);
-
-    this.pla.getPlanningsByCollaborateurId(param1).subscribe({
+    this.pla.getPlanningsByCollaborateurId(this.localservice.getNumber('utilisateurId')).subscribe({
       next: (data:Array<Planning>) => {
         debugger;
         console.log(data);
@@ -43,7 +38,7 @@ this.route.queryParams.subscribe(params => {
           console.log('complete')
       }
     }) 
-  });
+
   }
 
   private generateCalendarDays(monthIndex: number): void {

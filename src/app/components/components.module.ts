@@ -26,6 +26,7 @@ import { CalendarCollaborateurComponent } from './calendar-collaborateur/calenda
 import { ChunkPipe } from './calendar-collaborateur/models/ChunkPipe';
 import { InfoCollaborateurComponent } from './info-collaborateur/info-collaborateur.component';
 import { ListPlanningCollaborateursComponent } from './list-planning-collaborateurs/list-planning-collaborateurs.component';
+import { MonpointageComponent } from './monpointage/monpointage.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ListPlanningCollaborateursComponent } from './list-planning-collaborate
     CalendarCollaborateurComponent,
     ChunkPipe,
     InfoCollaborateurComponent,
-    ListPlanningCollaborateursComponent
+    ListPlanningCollaborateursComponent,
+    MonpointageComponent
   ],
   imports: [
     CommonModule,

@@ -4,6 +4,7 @@ import { connexionserviceService } from './services/connexion.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UtilisateurInfoDto } from './models/UtilisateurInfoDto';
+import { LocalStorageService } from 'src/app/local-storage.service';
 
 @Component({
   selector: 'app-connexion',
@@ -13,7 +14,9 @@ import { UtilisateurInfoDto } from './models/UtilisateurInfoDto';
 export class ConnexionComponent implements OnInit {
   userForm!:FormGroup;
   
-  constructor(private router: Router,private usService : connexionserviceService,private formbuilder:FormBuilder) { 
+  constructor(private router: Router,private usService : connexionserviceService,private formbuilder:FormBuilder,
+    private localservice :LocalStorageService 
+  ) { 
 
     this.userForm=this.formbuilder.group({
       login:['',[Validators.required]],
@@ -28,21 +31,19 @@ if(this.userForm.valid){
     this.usService.login(this.userForm.value).subscribe({
       next: (response:UtilisateurInfoDto) => {
         debugger;
-console.log(response.type);
 if(response!==null){
-  let navigationExtras: NavigationExtras = {
-    queryParams: { 'typeProfil': response.type, 'utilisateurId': response.utilisateur.id
-      ,'nom':response.utilisateur.nom,'prenom':response.utilisateur.prenom
-    }
-  };
+  this.localservice.setItem('typeProfil',response.type);
+  this.localservice.setItem('utilisateurId',""+response.utilisateur.id);
+  this.localservice.setItem('nom',""+response.utilisateur.nom);
+  this.localservice.setItem('prenom',""+response.utilisateur.prenom);
   if(response.type==="Manager"){
-  this.router.navigate(['/planning'], navigationExtras);
+  this.router.navigate(['/planning']);
 }
 else if(response.type==="Collaborateur"){
-  this.router.navigate(['/calendrierCollaborateur'], navigationExtras);
+  this.router.navigate(['/calendrierCollaborateur']);
 }
 else if(response.type==="RH"){
-  this.router.navigate(['/inscription'], navigationExtras);
+  this.router.navigate(['/inscription']);
 }
 }
 else{

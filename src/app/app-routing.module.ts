@@ -24,6 +24,7 @@ import { PlanningComponent } from './components/planning/planning.component';
 import { CalendarCollaborateurComponent } from './components/calendar-collaborateur/calendar-collaborateur.component';
 import { InfoCollaborateurComponent } from './components/info-collaborateur/info-collaborateur.component';
 import { ListPlanningCollaborateursComponent } from './components/list-planning-collaborateurs/list-planning-collaborateurs.component';
+import { MonpointageComponent } from './components/monpointage/monpointage.component';
 
 const routes: Routes = [
   {path:"", component:ConnexionComponent},
@@ -53,6 +54,7 @@ const routes: Routes = [
       {path:"calendrierCollaborateur", component:CalendarCollaborateurComponent},
       {path:"informationCollaborateur", component:InfoCollaborateurComponent},
       {path:"listPlanning", component:ListPlanningCollaborateursComponent},
+      {path:"monPointage", component:MonpointageComponent},
     ]
   },
 

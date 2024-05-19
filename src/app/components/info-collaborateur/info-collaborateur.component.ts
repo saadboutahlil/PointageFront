@@ -17,7 +17,7 @@ export class InfoCollaborateurComponent implements OnInit {
   infoCollaborateurForm!:any;
   dataresult!: ListReferentielDto;
   datainfos!: any;
-  displayedColumns: string[] = ['Nom Complet', "Date d'embauche", 'Salaire', 'Reliquat'];
+  displayedColumns: string[] = ['Nom Complet', "Date d'embauche", 'Reliquat'];
   constructor(private plaservice: PlanningService,private formbuilder:FormBuilder,private datePipe: DatePipe) { 
     this.infoCollaborateurForm=this.formbuilder.group({
       dateEmbauche:[''],
