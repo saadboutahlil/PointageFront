@@ -61,6 +61,11 @@ public construct_Menu(profil :string|null):sidebarMenu[]{
       icon: "list",
       menu: "Liste des plannings",
     });
+    this.sidebarMenu.push(  {
+      link: "/lesPointages",
+      icon: "list",
+      menu: "Liste des pointages",
+    });
   }
   else if(profil==="Collaborateur"){
 
@@ -74,6 +79,12 @@ public construct_Menu(profil :string|null):sidebarMenu[]{
       link: "/monPointage",
       icon: "list",
       menu: "Mon pointage",
+    });
+      
+    this.sidebarMenu.push(  {
+      link: "/monConge",
+      icon: "list",
+      menu: "Demande Conge",
     });
   }
 
