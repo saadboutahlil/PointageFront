@@ -12,4 +12,7 @@ url: string ="http://localhost:9090/manager";
 getInformations() {
   return this.http.get<any>(`${this.url}/getCollaborateurs`);
 }
+getPointages(datePointage:string) {
+  return this.http.get<any>(`${this.url}/${datePointage}/getPointages`);
+}
 }

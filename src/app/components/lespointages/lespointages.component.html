@@ -1,0 +1,9 @@
+<div>
+  <div align="center">
+    <button mat-fab class="mb-8 me-8"  (click)="decreaseDay()"><<</button>
+    <button mat-raised-button class="me-8 mb-8" (click)="setCurrentDay()">{{getCurrentDay()}}</button>
+    <button mat-fab class="mb-8 me-8"  (click)="increaseDay()">>></button>
+  </div>
+</div>
+{{displayDate}}
+<app-detailpointages [datePointage]="displayDate"></app-detailpointages>

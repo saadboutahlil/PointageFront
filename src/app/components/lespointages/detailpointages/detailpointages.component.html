@@ -1,0 +1,33 @@
+<div class="">
+    <table class="mat-table" border="2">
+      <!-- Headers -->
+      <tr>
+        <th>Nom collaborateur</th>
+        <th>Informations Pointage</th>
+        <th>Durée de travail</th>
+      </tr>
+  
+      <!-- Rows -->
+      <tr *ngFor="let element of pointagesdata">
+   <td>{{element.value[0].collaborateur.nom }} {{element.value[0].collaborateur.prenom }}</td>
+   <td>
+    <table>
+       <tr>
+<td>Heure Entree</td>
+<td>Heure Sortie</td>
+       </tr>
+       <tr *ngFor="let val of element.value">
+    <td>{{val.heureEntree}}  </td>
+    <td>{{val.heureSortie}}</td>
+
+    </tr>
+    </table>
+          
+</td>
+<td>
+    <!-- Calcul de la durée de travail pour chaque collaborateur -->
+    {{ calculateWorkDuration(element.value) }}
+</td>
+      </tr>
+    </table>
+  </div>

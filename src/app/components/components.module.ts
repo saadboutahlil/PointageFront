@@ -27,6 +27,9 @@ import { ChunkPipe } from './calendar-collaborateur/models/ChunkPipe';
 import { InfoCollaborateurComponent } from './info-collaborateur/info-collaborateur.component';
 import { ListPlanningCollaborateursComponent } from './list-planning-collaborateurs/list-planning-collaborateurs.component';
 import { MonpointageComponent } from './monpointage/monpointage.component';
+import { lespointagesComponent } from './lespointages/lespointages.component';
+import { DetailpointagesComponent } from './lespointages/detailpointages/detailpointages.component';
+import { MoncongeComponent } from './monconge/monconge.component';
 
 @NgModule({
   declarations: [
@@ -52,14 +55,17 @@ import { MonpointageComponent } from './monpointage/monpointage.component';
     ChunkPipe,
     InfoCollaborateurComponent,
     ListPlanningCollaborateursComponent,
-    MonpointageComponent
+    MonpointageComponent,
+    lespointagesComponent,
+    DetailpointagesComponent,
+    MoncongeComponent
   ],
   imports: [
     CommonModule,
     FeatherModule.pick(allIcons),
     DemoFlexyModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     AlertsComponent,
