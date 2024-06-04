@@ -9,6 +9,7 @@ import { CongeDTO } from '../models/CongeDto';
 })
 export class MonCongeService {
 url: string ="http://localhost:9090/collaborateur";
+urlmanager: string ="http://localhost:9090/manager";
   constructor(private http: HttpClient) { }
 saveConge(information:any){
   let httpheaders=new HttpHeaders()
@@ -22,5 +23,16 @@ saveConge(information:any){
 }
 getConge() {
   return this.http.get<any>(`${this.url}/getConge`);
+}
+
+changerEtat(val:boolean,congeId:number){
+  let httpheaders=new HttpHeaders()
+    .set('Content-type','application/Json');
+    let options={
+      headers:httpheaders,
+      'responseType': 'text' as 'json'
+    };
+    debugger;
+    return this.http.post<any>(this.urlmanager+'/etat',{val,congeId},options);
 }
 }

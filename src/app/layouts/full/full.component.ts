@@ -65,7 +65,13 @@ public construct_Menu(profil :string|null):sidebarMenu[]{
       link: "/lesPointages",
       icon: "list",
       menu: "Liste des pointages",
+    }); 
+      this.sidebarMenu.push(  {
+      link: "/validationConge",
+      icon: "list",
+      menu: "Validation de congé",
     });
+
   }
   else if(profil==="Collaborateur"){
 

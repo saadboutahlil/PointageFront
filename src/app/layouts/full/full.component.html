@@ -34,9 +34,7 @@
         *ngIf="isHandset$ | async">
         <i-feather name="menu" class="text-light-muted feather-base mt-n3"></i-feather>
       </button>
-      <button mat-icon-button class="ms-4 me-4" (click)="search=!search">
-        <i-feather name="search" class="mt-n3 text-light-muted feather-base text-dark"></i-feather>
-      </button>
+      
       <div class="ms-auto">
         <button mat-button class="fs-16 pt-4 pb-4 ps-8 pe-8 text-light-muted" [matMenuTriggerFor]="menu">
           <span class="fw-light ms-8 text-secondary">Vous etes un </span>
@@ -44,14 +42,9 @@
           <i-feather name="chevron-down" class="feather-base mt-n2"></i-feather>
         </button>
         <mat-menu #menu="matMenu" class="profile-dropdown">
-          <div class="p-16 mb-4">
-            <button mat-menu-item class="fs-16">Edit Profile</button>
-            <button mat-menu-item class="fs-16">Account</button>
-            <button mat-menu-item class="fs-16">Change Password</button>
-            <button mat-menu-item class="fs-16">My Settings</button>
-          </div>
+         
 
-          <hr>
+         
 
           <div class="p-16">
             <button mat-button class="btn btn-info w-100"  (click)="SeDeconnecter()">Logout</button>
@@ -78,12 +71,4 @@
 
 
 <!-- Search Box -->
-<div *ngIf="search" class="search-section d-flex align-items-center">
-  <mat-form-field class="w-100" color="primary" appearance="legacy">
-    <mat-label class="fs-16">Search Here</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <button mat-icon-button (click)="search=!search">
-    <i-feather name="x-circle" class="mt-n3 text-light-muted feather-base text-dark"></i-feather>
-  </button>
-</div>
+

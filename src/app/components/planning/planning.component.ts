@@ -4,6 +4,7 @@ import { PlanningService } from './services/PlanningService';
 import { ListReferentielDto } from './models/ListReferentielDto';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-planning',
@@ -12,7 +13,11 @@ import { DatePipe } from '@angular/common';
 export class PlanningComponent implements OnInit {
   planningForm!:FormGroup;
   dataresult!: ListReferentielDto;
-  constructor(private formbuilder:FormBuilder,private plaservice: PlanningService,private datePipe: DatePipe) {
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  constructor(private formbuilder:FormBuilder,private plaservice: PlanningService,private datePipe: DatePipe
+    ,private _snackBar: MatSnackBar
+  ) {
 
     this.planningForm=this.formbuilder.group({
       from:[''],
@@ -52,7 +57,10 @@ planning():void{
     this.plaservice.savePlanning(this.planningForm.value).subscribe({
       next: (response:any) => {
         debugger;
-        alert("Enregistrement effectué avec succees");
+        this._snackBar.open('Enregistrement effectué avec succees!!', 'Fermer', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
       },
       error: (error: HttpErrorResponse) => {
          console.error(error);

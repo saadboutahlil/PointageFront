@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { monpointageService } from './services/monpointage';
 import { HttpErrorResponse } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/local-storage.service';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-monpointage',
@@ -10,7 +11,10 @@ import { LocalStorageService } from 'src/app/local-storage.service';
 })
 export class MonpointageComponent implements OnInit {
   toggleChecked = false;
-  constructor(private readonly _pointage:monpointageService,  private localservice :LocalStorageService ) { }
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  constructor(private readonly _pointage:monpointageService,  private localservice :LocalStorageService ,private _snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
     this._pointage.getLastPointage(this.localservice.getNumber('utilisateurId')).subscribe(
@@ -22,7 +26,12 @@ this.toggleChecked=true;
           this.toggleChecked=false;
         }
       },
-      (error) => console.error('Erreur lors de la récupération du pointage:', error)
+      (error) => 
+        this._snackBar.open('Erreur lors de la récupération du pointage!!', 'Fermer', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        })
+      
     );
   }
   onToggleChange(event: any) {
@@ -31,7 +40,10 @@ this.toggleChecked=true;
     this._pointage.badge(event.checked,this.localservice.getNumber('utilisateurId')).subscribe({
       next: (response:any) => {
         debugger;
-        alert("Enregistrement effectué avec succees");
+        this._snackBar.open('Enregistrement effectué avec succees!!', 'Fermer', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
       },
       error: (error: HttpErrorResponse) => {
          console.error(error);
@@ -42,7 +54,10 @@ this.toggleChecked=true;
     this._pointage.debadge(event.checked,this.localservice.getNumber('utilisateurId')).subscribe({
       next: (response:any) => {
         debugger;
-        alert("modification effectuée avec succees");
+        this._snackBar.open('modification effectuée avec succees!!', 'Fermer', {
+          horizontalPosition: this.horizontalPosition,
+          verticalPosition: this.verticalPosition,
+        });
       },
       error: (error: HttpErrorResponse) => {
          console.error(error);

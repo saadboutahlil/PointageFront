@@ -30,6 +30,7 @@ import { MonpointageComponent } from './monpointage/monpointage.component';
 import { lespointagesComponent } from './lespointages/lespointages.component';
 import { DetailpointagesComponent } from './lespointages/detailpointages/detailpointages.component';
 import { MoncongeComponent } from './monconge/monconge.component';
+import { ValidationcongeComponent } from './validationconge/validationconge.component';
 
 @NgModule({
   declarations: [
@@ -58,14 +59,16 @@ import { MoncongeComponent } from './monconge/monconge.component';
     MonpointageComponent,
     lespointagesComponent,
     DetailpointagesComponent,
-    MoncongeComponent
+    MoncongeComponent,
+    ValidationcongeComponent
   ],
   imports: [
     CommonModule,
     FeatherModule.pick(allIcons),
     DemoFlexyModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   exports: [
     AlertsComponent,

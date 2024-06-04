@@ -5,6 +5,7 @@ import { FormBuilder } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-info-collaborateur',
@@ -17,8 +18,12 @@ export class InfoCollaborateurComponent implements OnInit {
   infoCollaborateurForm!:any;
   dataresult!: ListReferentielDto;
   datainfos!: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'start';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   displayedColumns: string[] = ['Nom Complet', "Date d'embauche", 'Reliquat'];
-  constructor(private plaservice: PlanningService,private formbuilder:FormBuilder,private datePipe: DatePipe) { 
+  constructor(private plaservice: PlanningService,private formbuilder:FormBuilder,private datePipe: DatePipe
+    ,private _snackBar: MatSnackBar
+  ) { 
     this.infoCollaborateurForm=this.formbuilder.group({
       dateEmbauche:[''],
       reliquat:[''],
@@ -31,8 +36,6 @@ export class InfoCollaborateurComponent implements OnInit {
     this.afficherList();
     this.plaservice.getListReferentiel().subscribe({
       next: (data:ListReferentielDto) => {
-        debugger;
-        console.log(data);
         this.dataresult=data;
       },
       error: (error) => {
@@ -51,10 +54,16 @@ export class InfoCollaborateurComponent implements OnInit {
         next: (response:any) => {
           debugger;
           if(response!=="saved"){
-            alert("Ces informations du collaborateur existe deja");
+            this._snackBar.open('Ces informations du collaborateur existe deja', 'Fermer', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+            });
           }
           else{
-            alert("Enregistrement effectué avec succees");
+            this._snackBar.open('Enregistrement effectué avec succees', 'Fermer', {
+              horizontalPosition: this.horizontalPosition,
+              verticalPosition: this.verticalPosition,
+            });
             this.afficherList();
           }
          

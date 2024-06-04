@@ -27,6 +27,7 @@ import { ListPlanningCollaborateursComponent } from './components/list-planning-
 import { MonpointageComponent } from './components/monpointage/monpointage.component';
 import { lespointagesComponent } from './components/lespointages/lespointages.component';
 import { MoncongeComponent } from './components/monconge/monconge.component';
+import { ValidationcongeComponent } from './components/validationconge/validationconge.component';
 
 const routes: Routes = [
   {path:"", component:ConnexionComponent},
@@ -59,6 +60,7 @@ const routes: Routes = [
       {path:"monPointage", component:MonpointageComponent},
       {path:"lesPointages", component:lespointagesComponent},
       {path:"monConge", component:MoncongeComponent},
+      {path:"validationConge", component:ValidationcongeComponent},
     ]
   },
 
